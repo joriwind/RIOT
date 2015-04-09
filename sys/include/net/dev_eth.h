@@ -52,6 +52,10 @@
 #ifndef DEV_ETH_H
 #define DEV_ETH_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <stdint.h>
 #include "ng_ethernet/hdr.h"
 
@@ -187,5 +191,8 @@ extern void dev_eth_rx_handler(dev_eth_t *dev);
  */
 extern void dev_eth_linkstate_handler(dev_eth_t *dev, int newstate);
 
+#ifdef __cplusplus
+}
+#endif
 /** @} */
 #endif /* DEV_ETH_H */
