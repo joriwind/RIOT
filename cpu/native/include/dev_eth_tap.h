@@ -20,6 +20,10 @@
 #ifndef DEV_ETH_TAP_H
 #define DEV_ETH_TAP_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <stdint.h>
 #include "net/dev_eth.h"
 
@@ -49,7 +53,8 @@ extern dev_eth_tap_t dev_eth_tap;
  */
 void dev_eth_tap_setup(dev_eth_tap_t *dev, const char *name);
 
-/**
- * @}
- */
+#ifdef __cplusplus
+}
+#endif
+/** @} */
 #endif /* DEV_ETH_TAP_H */
