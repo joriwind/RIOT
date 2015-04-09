@@ -62,7 +62,7 @@
  * The extended structure should contain all variable driver state.
  */
 typedef struct dev_eth {
-    struct eth_driver *driver;  /**< ptr to that driver's interface structure.
+    const struct eth_driver *driver; /**< ptr to that driver's interface.
                                      driver->init() expects this to be present,
                                      so set this before using the device. */
 } dev_eth_t;
