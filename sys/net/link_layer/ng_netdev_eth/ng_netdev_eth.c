@@ -382,13 +382,13 @@ static int _marshall_ethernet(ng_netdev_eth_t *dev, uint8_t *buffer, ng_pktsnip_
         ethdev->driver->get_mac_addr(ethdev, hdr->src);
     }
 
-    if (netif_hdr->flags & NG_NETIF_HDR_FLAGS_BROADCAST) {
+/*    if (netif_hdr->flags & NG_NETIF_HDR_FLAGS_BROADCAST) {
         _addr_set_broadcast(hdr->dst);
     }
     else if (netif_hdr->flags & NG_NETIF_HDR_FLAGS_MULTICAST) {
         _addr_set_multicast(hdr->dst, payload);
     }
-    else if (netif_hdr->dst_l2addr_len == NG_ETHERNET_ADDR_LEN) {
+    else*/ if (netif_hdr->dst_l2addr_len == NG_ETHERNET_ADDR_LEN) {
         memcpy(hdr->dst, ng_netif_hdr_get_dst_addr(netif_hdr),
                NG_ETHERNET_ADDR_LEN);
     }
