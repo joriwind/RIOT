@@ -32,6 +32,7 @@
 #include "periph/gpio.h"
 
 #include "net/dev_eth.h"
+#include "dev_eth_autoinit.h"
 
 #define ENABLE_DEBUG 1
 #include "debug.h"
@@ -52,12 +53,6 @@ void turn_packet(char *pkt) {
     /* set our MAC address as sender */
     memcpy(pkt+6, mac, 6);
 }
-
-#ifdef MODULE_NG_NATIVENET
-#include "dev_eth_tap.h"
-extern dev_eth_tap_t dev_eth_tap;
-dev_eth_t *dev = (dev_eth_t*)&dev_eth_tap;
-#endif
 
 void dev_eth_isr(dev_eth_t *dev) {
     (void)dev;
@@ -80,6 +75,9 @@ void dev_eth_rx_handler(dev_eth_t *dev) {
 int main(void)
 {
     handler_pid = thread_getpid();
+
+    /* always use first ethernet device for test */
+    dev_eth_t *const dev = dev_eth_devices[0];
 
     dev_eth_init(dev);
 

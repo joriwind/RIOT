@@ -8,4 +8,6 @@ ifneq (,$(filter native,$(BOARD)))
 USEMODULE += ng_nativenet
 endif
 
+USEMODULE += dev_eth_autoinit
+
 include $(RIOTBASE)/Makefile.include
