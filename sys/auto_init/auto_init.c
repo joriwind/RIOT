@@ -90,6 +90,11 @@
 #include "net/ng_pktdump.h"
 #endif
 
+#ifdef MODULE_DEV_ETH_AUTOINIT
+#include "net/dev_eth.h"
+#include "dev_eth_autoinit.h"
+#endif
+
 #define ENABLE_DEBUG (0)
 #include "debug.h"
 
@@ -279,5 +284,9 @@ void auto_init(void)
 #ifdef MODULE_NG_PKTDUMP
     DEBUG("Auto init ng_pktdump module.\n");
     ng_pktdump_init();
+#endif
+#ifdef MODULE_DEV_ETH_AUTOINIT
+    DEBUG("Auto init dev_eth ethernet devices.\n");
+    dev_eth_autoinit();
 #endif
 }
