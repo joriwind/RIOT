@@ -72,6 +72,11 @@ void dev_eth_rx_handler(dev_eth_t *dev) {
     }
 }
 
+void dev_eth_linkstate_handler(dev_eth_t *dev, int newstate)
+{
+    DEBUG("dev_eth: dev=0x%08x link %s\n", (unsigned)dev, newstate ? "UP" : "DOWN");
+}
+
 int main(void)
 {
     handler_pid = thread_getpid();
