@@ -185,6 +185,11 @@ static int _init(dev_eth_t *ethdev)
 {
     dev_eth_tap_t *dev = (dev_eth_tap_t*)ethdev;
 
+    /* check device parametrs */
+    if (dev == NULL) {
+        return -ENODEV;
+    }
+
     char *name = dev->tap_name;
 #ifdef __MACH__ /* OSX */
     char clonedev[255] = "/dev/"; /* XXX bad size */
@@ -196,10 +201,6 @@ static int _init(dev_eth_t *ethdev)
     struct ifreq ifr;
     const char *clonedev = "/dev/net/tun";
 #endif
-    /* check device parametrs */
-    if (dev == NULL) {
-        return -ENODEV;
-    }
     /* initialize device descriptor */
     dev->promiscous = 0;
     /* implicitly create the tap interface */
