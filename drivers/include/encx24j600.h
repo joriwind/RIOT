@@ -27,6 +27,10 @@
 #include "periph/gpio.h"
 #include "net/dev_eth.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * @brief encx24j600 dev_eth device
  * @extends dev_eth_t
@@ -53,5 +57,8 @@ typedef struct {
  */
 void encx24j600_setup(encx24j600_t *dev, spi_t spi, gpio_t cs_pin, gpio_t int_pin);
 
+#ifdef __cplusplus
+}
+#endif
 #endif /* ENCX24J600_H */
 /** @} */

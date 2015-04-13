@@ -20,6 +20,10 @@
 #ifndef ENCX24J600_INTERNAL_H
 #define ENCX24J600_INTERNAL_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * @brief structure resembling format as sent by device
  */
@@ -33,5 +37,8 @@ typedef struct __attribute__((packed)) encx24j600_frame_hdr {
                                      sake of documentation completeness */
 } encx24j600_frame_hdr_t;
 
+#ifdef __cplusplus
+}
+#endif
 #endif /* ENCX24J600_INTERNAL_H */
 /** @} */

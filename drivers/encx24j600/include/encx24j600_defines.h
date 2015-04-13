@@ -19,6 +19,10 @@
 #ifndef ENCX24J600_REGS_H
 #define ENCX24J600_REGS_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * @name SPI instruction set
  * @{
@@ -193,5 +197,8 @@
 
 /** @} */
 
+#ifdef __cplusplus
+}
+#endif
 #endif /* ENCX24J600_REGS_H */
 /** @} */
