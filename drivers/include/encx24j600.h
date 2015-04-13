@@ -40,6 +40,17 @@ typedef struct {
     mutex_t mutex;          /**< mutex used to lock SPI access */
 } encx24j600_t;
 
+/**
+ * @brief Setup an encx24j600 based device state.
+ *
+ * This function sets SPI pins, initializes the device state structure.
+ * It does not initialize the device itself.
+ *
+ * @param[out]  dev     the handle of the device to initialize
+ * @param[in]   spi     SPI device the device is connected to
+ * @param[in]   cs_pin  SPI chip select pin used to select the device
+ * @param[in]   int_pin pin the device will trigger an interrupt on
+ */
 void encx24j600_setup(encx24j600_t *dev, spi_t spi, gpio_t cs_pin, gpio_t int_pin);
 
 #endif /* ENCX24J600_H */
