@@ -32,7 +32,7 @@ enum {
 #ifdef MODULE_NG_NATIVENET
     DEV_ETH_TAP,
 #endif
-#ifdef MOULE_ENCX24J600
+#ifdef MODULE_ENCX24J600
     DEV_ETH_ENCX24J600,
 #endif
     /* must be last: */
