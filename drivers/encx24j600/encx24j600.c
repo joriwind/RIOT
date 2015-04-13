@@ -108,7 +108,6 @@ static void _isr(dev_eth_t *encdev)
     encx24j600_t *dev = (encx24j600_t *) encdev;
 
     uint16_t eir;
-    uint16_t estat;
 
     lock(dev);
     cmd(dev, CLREIE);
@@ -120,7 +119,7 @@ static void _isr(dev_eth_t *encdev)
     }
 
     if (eir & LINKIF) {
-        estat = reg_get(dev, ESTAT);
+        uint16_t estat = reg_get(dev, ESTAT);
         dev_eth_linkstate_handler(encdev, estat & PHYLNK);
     }
 
