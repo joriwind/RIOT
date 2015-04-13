@@ -446,7 +446,9 @@ void dev_eth_isr(dev_eth_t* dev)
     msg.type = NG_NETDEV_MSG_TYPE_EVENT;
     msg.content.value = _ISR_EVENT_RX;
 
-    msg_send(&msg, ng_netdev_eth.mac_pid);
+    if (msg_send(&msg, ng_netdev_eth.mac_pid) <= 0) {
+        puts("dev_eth_isr: possibly lost interrupt.");
+    }
 }
 
 void dev_eth_rx_handler(dev_eth_t* dev) {
