@@ -310,7 +310,16 @@ static void _isr_event(ng_netdev_t *dev, uint32_t event_type)
 
     switch (event_type) {
         case _ISR_EVENT_RX:
+
             DEBUG("[ISR]\n");
+
+#ifdef NETDEV_ETH_DELAY_SEND
+            DEBUG("netdev_eth: delaying send...\n");
+            volatile int i = NETDEV_ETH_DELAY_SEND;
+            while(i--);
+            DEBUG("netdev_eth: delay done.\n");
+#endif
+
             dev_eth_t *ethdev = netdev->ethdev;
             ethdev->driver->isr(ethdev);
             break;
