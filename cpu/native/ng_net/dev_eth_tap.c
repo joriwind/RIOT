@@ -50,7 +50,7 @@
 #include "net/dev_eth.h"
 #include "dev_eth_tap.h"
 
-#define ENABLE_DEBUG 1
+#define ENABLE_DEBUG 0
 #include "debug.h"
 
 /* support one tap interface for now */
@@ -242,6 +242,9 @@ static int _init(dev_eth_t *ethdev)
         real_exit(EXIT_FAILURE);
     }
     memcpy(dev->addr, ifr.ifr_hwaddr.sa_data, NG_ETHERNET_ADDR_LEN);
+
+    /* change mac addr so it differs from what the host is using */
+    dev->addr[5]++;
 #endif
     DEBUG("ng_tapnet_init(): dev->addr = %02x:%02x:%02x:%02x:%02x:%02x\n",
             dev->addr[0], dev->addr[1], dev->addr[2],
