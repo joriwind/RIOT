@@ -20,7 +20,6 @@
  * @author      Kaspar Schleiser <kaspar@schleiser.de>
  */
 
-#include <err.h>
 #include <errno.h>
 #include <fcntl.h>
 #include <inttypes.h>
@@ -28,11 +27,8 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
-#include <sys/ioctl.h>
-#include <unistd.h>
 
 #include "byteorder.h"
-#include "native_internal.h"
 #include "net/ng_ethernet.h"
 #include "net/ng_ethertype.h"
 #include "net/ng_netdev.h"
@@ -118,7 +114,7 @@ static int _send_data(ng_netdev_t *netdev, ng_pktsnip_t *pkt)
 
     if (to_send < 0) {
         errno = -to_send;
-        warn("marshall");
+        DEBUG("marshall\n");
         return to_send;
     }
 
@@ -129,7 +125,7 @@ static int _send_data(ng_netdev_t *netdev, ng_pktsnip_t *pkt)
 
     dev_eth_t *ethdev = dev->ethdev;
     if ((nsent = ethdev->driver->send(ethdev, (char*)send_buffer, to_send)) < 0) {
-        warn("write");
+        DEBUG("write\n");
         return -EIO;
     }
 
@@ -447,6 +443,11 @@ void dev_eth_isr(dev_eth_t* dev)
 void dev_eth_rx_handler(dev_eth_t* dev) {
     (void)dev;
     _rx_event(&ng_netdev_eth);
+}
+
+void dev_eth_linkstate_handler(dev_eth_t *dev, int newstate)
+{
+    DEBUG("ng_dev_eth: dev=0x%08x link %s\n", (unsigned)dev, newstate ? "UP" : "DOWN");
 }
 
 static void _rx_event(ng_netdev_eth_t *netdev)
