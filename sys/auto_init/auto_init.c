@@ -98,8 +98,14 @@
 #include "net/ng_pktdump.h"
 #endif
 
+<<<<<<< HEAD
 #ifdef MODULE_NG_UDP
 #include "net/ng_udp.h"
+#endif
+=======
+#ifdef MODULE_NG_SOCKET
+#include "net/ng_socket.h"
+>>>>>>> 9e8aaf71104dbba8cdf7ce9ad41f1d15ddb26876
 #endif
 
 #define ENABLE_DEBUG (0)
@@ -292,6 +298,7 @@ void auto_init(void)
     DEBUG("Auto init ng_pktdump module.\n");
     ng_pktdump_init();
 #endif
+<<<<<<< HEAD
 #ifdef MODULE_NG_SIXLOWPAN
     DEBUG("Auto init ng_sixlowpan module.\n");
     ng_sixlowpan_init();
@@ -303,5 +310,11 @@ void auto_init(void)
 #ifdef MODULE_NG_UDP
     DEBUG("Auto init UDP module.\n");
     ng_udp_init();
+#endif
+=======
+#ifdef MODULE_NG_SOCKET
+    DEBUG("Auto init ng_socket module\n");
+    ng_socket_init();
+>>>>>>> 9e8aaf71104dbba8cdf7ce9ad41f1d15ddb26876
 #endif
 }
