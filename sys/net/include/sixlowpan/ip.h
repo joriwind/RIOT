@@ -38,7 +38,7 @@ extern "C" {
 /**
  * @brief   IPv6 maximum transmission unit.
  */
-#define IPV6_MTU                (256)
+#define IPV6_MTU                (1280)
 
 /**
  * @brief   Length of an IPv6 address in byte.

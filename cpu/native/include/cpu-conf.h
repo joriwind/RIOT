@@ -38,7 +38,7 @@ extern "C" {
 #define NATIVE_ISR_STACKSIZE            (163840)
 
 #else /* Linux etc. */
-#define KERNEL_CONF_STACKSIZE_DEFAULT       (8192)
+#define KERNEL_CONF_STACKSIZE_DEFAULT       (163840)
 #define KERNEL_CONF_STACKSIZE_IDLE          (8192)
 #define KERNEL_CONF_STACKSIZE_PRINTF        (8192)
 #define KERNEL_CONF_STACKSIZE_PRINTF_FLOAT  (8192)
