@@ -201,3 +201,7 @@ ifneq (,$(filter oonf_common,$(USEMODULE)))
   USEPKG += oonf_api
   USEMODULE += socket_base
 endif
+ifneq (,$(filter encx24j600,$(USEMODULE)))
+  USEMODULE += timex
+  USEMODULE += vtimer
+endif

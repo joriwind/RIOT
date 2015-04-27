@@ -99,6 +99,7 @@
 #endif
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #ifdef MODULE_NG_UDP
 #include "net/ng_udp.h"
 #endif
@@ -106,6 +107,12 @@
 #ifdef MODULE_NG_SOCKET
 #include "net/ng_socket.h"
 >>>>>>> 9e8aaf71104dbba8cdf7ce9ad41f1d15ddb26876
+#endif
+=======
+#ifdef MODULE_DEV_ETH_AUTOINIT
+#include "net/dev_eth.h"
+#include "dev_eth_autoinit.h"
+>>>>>>> 4f43e8a16e95fe06b2c99b0f1c90ebdfc6b7e1f1
 #endif
 
 #define ENABLE_DEBUG (0)
@@ -299,6 +306,7 @@ void auto_init(void)
     ng_pktdump_init();
 #endif
 <<<<<<< HEAD
+<<<<<<< HEAD
 #ifdef MODULE_NG_SIXLOWPAN
     DEBUG("Auto init ng_sixlowpan module.\n");
     ng_sixlowpan_init();
@@ -316,5 +324,11 @@ void auto_init(void)
     DEBUG("Auto init ng_socket module\n");
     ng_socket_init();
 >>>>>>> 9e8aaf71104dbba8cdf7ce9ad41f1d15ddb26876
+#endif
+=======
+#ifdef MODULE_DEV_ETH_AUTOINIT
+    DEBUG("Auto init dev_eth ethernet devices.\n");
+    dev_eth_autoinit();
+>>>>>>> 4f43e8a16e95fe06b2c99b0f1c90ebdfc6b7e1f1
 #endif
 }
