@@ -111,7 +111,7 @@
 #include "dev_eth_autoinit.h"
 #endif
 
-#define ENABLE_DEBUG (0)
+#define ENABLE_DEBUG (1)
 #include "debug.h"
 
 #ifndef CONF_RADIO_ADDR
